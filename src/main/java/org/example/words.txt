@@ -1,0 +1,3 @@
+kot;cat
+pies;dog
+ryba;fish
