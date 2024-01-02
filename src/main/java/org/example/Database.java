@@ -34,6 +34,15 @@ class Database {
         public void addUser(String name, String username, String email, String password) {
             database.Users.add(new User(name, username, email, password));
         }
+
+        public List<Word> getWords() {
+            return database.Words;
+        }
+        public void addWord(String polishWord, String englishWord) {
+            database.Words.add(new Word(polishWord, englishWord));
+        }
+
+
     }
 }
 

@@ -7,7 +7,7 @@ public class User {
     String name;
     String username;
     String email;
-    private String password;
+    String password;
 
     public User(String name,String username,String email,String password){
         idGenerate = idGenerate + 1;
