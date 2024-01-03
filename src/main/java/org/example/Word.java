@@ -11,5 +11,13 @@ public class Word {
         this.polishWord = polishWord;
         this.englishWord = englishWord;
     }
+
+    public String getPolishWord() {
+        return polishWord;
+    }
+
+    public String getEnglishWord() {
+        return englishWord;
+    }
 }
 

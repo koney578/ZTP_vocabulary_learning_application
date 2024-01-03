@@ -1,7 +1,7 @@
 package org.example;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
+import java.util.List;
 import java.util.Scanner;
 
 public class DataController {
@@ -48,6 +48,35 @@ public class DataController {
             scanner.close();
         } catch (FileNotFoundException e) {
             System.out.println("Nie można znaleźć pliku: " + nameFileWord);
+        }
+    }
+
+    public void saveDataUser() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nameFileUser))) {
+            IConnection connection = Database.getConnection();
+            List<User> users = connection.getUsers();
+            for (User user : users) {
+                String userData = user.getName() + ";" + user.getUsername() + ";" +
+                        user.getEmail() + ";" + user.getPassword();
+                writer.write(userData);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void saveDataWord() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nameFileWord))) {
+            IConnection connection = Database.getConnection();
+            List<Word> words = connection.getWords();
+            for (Word word : words) {
+                String wordData = word.getPolishWord() + ";" + word.getEnglishWord();
+                writer.write(wordData);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

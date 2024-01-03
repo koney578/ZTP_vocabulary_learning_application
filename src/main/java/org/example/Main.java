@@ -18,5 +18,9 @@ public class Main {
         for (Word word : words) {
             System.out.println("ID: " + word.id + ", Słowo polskie: " + word.polishWord+ ", Słowo angielskie: " + word.englishWord);
         }
+//        connection.addUser("test","test","test", "test");
+//        connection.addWord("test", "test");
+        dataController.saveDataUser();
+        dataController.saveDataWord();
     }
 }
