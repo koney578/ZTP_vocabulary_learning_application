@@ -1,6 +1,4 @@
 package org.example;
-
-import javax.management.ConstructorParameters;
 public class User {
     private static int idGenerate = 0;
     int id;
