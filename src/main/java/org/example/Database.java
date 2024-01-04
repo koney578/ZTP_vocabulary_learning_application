@@ -3,7 +3,7 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-class Database {
+public class Database {
     private List<User> Users = new ArrayList<>();
     private List<Word> Words = new ArrayList<>();
     private static final Database database = new Database();
@@ -38,6 +38,18 @@ class Database {
         public List<Word> getWords() {
             return database.Words;
         }
+
+        public List<Word> getRandomWords(int number) {
+            List<Word> list = database.Words;
+            List<Word> words = new ArrayList<>();
+            for (int i = 0; i < number; i++) {
+                int randomIndex = (int) (Math.random() * list.size());
+                words.add(list.get(randomIndex));
+                list.remove(randomIndex);
+            }
+            return words;
+        }
+
         public void addWord(String polishWord, String englishWord) {
             database.Words.add(new Word(polishWord, englishWord));
         }
