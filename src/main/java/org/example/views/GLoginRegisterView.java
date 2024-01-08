@@ -1,5 +1,6 @@
 package org.example.views;
 
+import org.example.controllers.GController;
 import org.example.controllers.GLoginRegisterController;
 
 import javax.swing.*;
@@ -21,7 +22,7 @@ public class GLoginRegisterView {
         jframe.getContentPane().repaint();
 
         JPanel mainPanel = new JPanel();
-        mainPanel.setLayout(new GridLayout(8,1));
+        mainPanel.setLayout(new GridLayout(9,1));
         jframe.getContentPane().add(mainPanel);
 
         JLabel label1 = new JLabel("Witaj w aplikacji do nauki słówek!");
@@ -50,10 +51,6 @@ public class GLoginRegisterView {
         firstButton.setBackground(Color.PINK);
         mainPanel.add(firstButton);
 
-        JLabel label4 = new JLabel("");
-        label4.setFont(new Font("Arial", Font.ITALIC, 24));
-        mainPanel.add(label4);
-
         JLabel label5= new JLabel("Nie masz jescze konta?");
         label5.setFont(new Font("Arial", Font.ITALIC, 18));
         mainPanel.add(label5);
@@ -62,11 +59,25 @@ public class GLoginRegisterView {
         secondButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                gLoginRegisterController.getNewRegisterView();
             }
         });
         secondButton.setBackground(Color.PINK);
         mainPanel.add(secondButton);
+
+        JLabel label4 = new JLabel("Chcesz zakończyć pracę?");
+        label4.setFont(new Font("Arial", Font.ITALIC, 18));
+        mainPanel.add(label4);
+
+        JButton thirdButton = new JButton("Wyjście");
+        thirdButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gLoginRegisterController.exitApp();
+            }
+        });
+        thirdButton.setBackground(Color.PINK);
+        mainPanel.add(thirdButton);
 
         jframe.setVisible(true);
     }

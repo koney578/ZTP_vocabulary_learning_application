@@ -16,8 +16,8 @@ public class GLoginController extends GController{
     private GMenuController gMenuController;
     public GLoginController(GLoginRegisterController gLoginRegisterController) {
         gLoginView = new GLoginView(this, jframe);
-        this.gMenuController = new GMenuController(this);
         this.gLoginRegisterController = gLoginRegisterController;
+        this.gMenuController = new GMenuController(this, gLoginRegisterController);
     }
 
     public void run() {
@@ -39,8 +39,4 @@ public class GLoginController extends GController{
     public void getNewLoginRegisterView() {
         gLoginRegisterController.run();
     }
-
-//    public void getNewMenuView() {
-//        gMenuController.run();
-//    }
 }

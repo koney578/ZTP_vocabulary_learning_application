@@ -30,7 +30,7 @@ public class GLoginView {
         mainPanel.setLayout(new GridLayout(12,1));
         jframe.getContentPane().add(mainPanel);
 
-        JLabel label1 = new JLabel("Uzupełnij poniższe pola: ");
+        JLabel label1 = new JLabel("Aby się zalogować uzupełnij poniższe pola: ");
         label1.setFont(new Font("Arial", Font.ITALIC, 24));
         mainPanel.add(label1);
 

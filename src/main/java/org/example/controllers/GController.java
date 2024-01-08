@@ -35,5 +35,10 @@ public abstract class GController {
         dataController.saveDataUser();
         System.exit(0);
     }
+
+    protected static void saveData() {
+        dataController.saveDataWord();
+        dataController.saveDataUser();
+    }
 }
 

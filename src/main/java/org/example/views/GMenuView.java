@@ -4,6 +4,8 @@ import org.example.controllers.GMenuController;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class GMenuView {
 
@@ -27,6 +29,45 @@ public class GMenuView {
         label1.setFont(new Font("Arial", Font.ITALIC, 24));
         label1.setForeground(Color.GREEN);
         mainPanel.add(label1);
+
+        JLabel label2 = new JLabel("");
+        label2.setFont(new Font("Arial", Font.ITALIC, 24));
+        mainPanel.add(label2);
+
+        JLabel label3 = new JLabel("W jakim trybie chcesz pracować?");
+        label3.setFont(new Font("Arial", Font.ITALIC, 24));
+        mainPanel.add(label3);
+
+        JButton firstButton = new JButton("Tryb nauki");
+        firstButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
+
+        firstButton.setBackground(Color.PINK);
+        mainPanel.add(firstButton);
+
+        JButton secondButton = new JButton("Tryb testu");
+        secondButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
+
+        secondButton.setBackground(Color.PINK);
+        mainPanel.add(secondButton);
+
+        JButton thirdButton = new JButton("Wyloguj");
+        thirdButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gMenuController.getNewLoginRegisterView();
+            }
+        });
+
+        thirdButton.setBackground(Color.PINK);
+        mainPanel.add(thirdButton);
 
         jframe.setVisible(true);
     }
