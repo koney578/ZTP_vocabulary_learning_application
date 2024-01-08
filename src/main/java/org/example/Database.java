@@ -53,8 +53,6 @@ public class Database {
         public void addWord(String polishWord, String englishWord) {
             database.Words.add(new Word(polishWord, englishWord));
         }
-
-
     }
 }
 
