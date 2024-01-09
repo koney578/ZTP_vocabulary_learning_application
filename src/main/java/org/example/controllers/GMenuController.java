@@ -20,4 +20,9 @@ public class GMenuController extends GController{
     public void getNewLoginRegisterView() {
         gLoginRegisterController.run();
     }
+
+    //funkcja nizej to tylko test bo ucze sie stanu
+    public void testtesttest() {
+        wordDispenser.getState().onLock();
+    }
 }

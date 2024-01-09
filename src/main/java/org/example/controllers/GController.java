@@ -3,12 +3,14 @@ package org.example.controllers;
 import org.example.DataController;
 import org.example.Database;
 import org.example.IConnection;
+import org.example.state.WordDispenser;
 
 import javax.swing.*;
 
 public abstract class GController {
     protected static final JFrame jframe;
     static DataController dataController = new DataController();
+    static WordDispenser wordDispenser = new WordDispenser();
 
 
     static {
