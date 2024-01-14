@@ -7,10 +7,12 @@ public class GMenuController extends GController{
     private GMenuView gMenuView;
     private GLoginController gLoginController;
     private GLoginRegisterController gLoginRegisterController;
+    private GLearningTestController gLearningTestController;
     public GMenuController(GLoginController gLoginController, GLoginRegisterController gLoginRegisterController) {
         gMenuView = new GMenuView(this, jframe);
         this.gLoginController = gLoginController;
         this.gLoginRegisterController = gLoginRegisterController;
+        this.gLearningTestController = new GLearningTestController(this);
     }
 
     public void run() {
@@ -20,9 +22,15 @@ public class GMenuController extends GController{
     public void getNewLoginRegisterView() {
         gLoginRegisterController.run();
     }
-
-    //funkcja nizej to tylko test bo ucze sie stanu
-    public void testtesttest() {
-        wordDispenser.getState().onLock();
+    public void getNewLearningTestView() {
+        gLearningTestController.run();
     }
+    public void setStateTest() {
+        wordDispenser.getState().setTest();
+    }
+
+    public void setStateLearning() {
+        wordDispenser.getState().setLearning();
+    }
+
 }

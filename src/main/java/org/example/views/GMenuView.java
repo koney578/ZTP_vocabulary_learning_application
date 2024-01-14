@@ -42,6 +42,8 @@ public class GMenuView {
         firstButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                gMenuController.setStateLearning();
+                gMenuController.getNewLearningTestView();
             }
         });
 
@@ -52,6 +54,8 @@ public class GMenuView {
         secondButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                gMenuController.setStateTest();
+                gMenuController.getNewLearningTestView();
             }
         });
 

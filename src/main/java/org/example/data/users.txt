@@ -12,3 +12,4 @@ Alicja;User11;alicja@dabrowska.com;Password456!
 Bartosz;User12;bartosz@nowicki.com;StrongPwd2023
 Karolina;User13;karolina@kwiatkowska.com;SafePass2024
 koney;koney;koney;koney
+robert;robert;robert;robert
