@@ -11,7 +11,6 @@ public class WordDispenser {
     public WordDispenser() {
         this.state = new LearningState(this);
     }
-
     public void changeState(State state) {
         this.state = state;
     }

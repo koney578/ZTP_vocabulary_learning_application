@@ -1,9 +1,7 @@
 package org.example.state;
 
 import org.example.Word;
-
 import java.util.List;
-
 public abstract class State {
     WordDispenser wordDispenser;
     State(WordDispenser wordDispenser) {
@@ -11,7 +9,6 @@ public abstract class State {
     }
 
     public abstract String setTest();
-
     public abstract String setLearning();
     public abstract List<Word> getWords();
 }

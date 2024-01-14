@@ -40,7 +40,10 @@ public class Database {
         }
 
         public List<Word> getRandomWords(int number) {
-            List<Word> list = database.Words;
+            List<Word> list = new ArrayList<>();
+            for (Word word : database.Words) {
+                list.add(word);
+            }
             List<Word> words = new ArrayList<>();
             for (int i = 0; i < number; i++) {
                 int randomIndex = (int) (Math.random() * list.size());

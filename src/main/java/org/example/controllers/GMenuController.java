@@ -28,7 +28,6 @@ public class GMenuController extends GController{
     public void setStateTest() {
         wordDispenser.getState().setTest();
     }
-
     public void setStateLearning() {
         wordDispenser.getState().setLearning();
     }
