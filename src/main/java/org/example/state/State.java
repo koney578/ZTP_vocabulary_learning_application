@@ -11,4 +11,18 @@ public abstract class State {
     public abstract String setTest();
     public abstract String setLearning();
     public abstract List<Word> getWords();
+
+    public abstract Word getGoodWord();
+
+    public abstract String getMessage();
+
+    public abstract String checkAnswer(Word word);
+
+    public abstract String getPoints();
+
+    public abstract int checkQuestion();
+
+    public abstract void removeWordFamiliarized();
+
+    public abstract void refreshWordFamiliarized();
 }

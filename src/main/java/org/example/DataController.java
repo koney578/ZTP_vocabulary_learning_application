@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class DataController {
     String nameFileUser = "src/main/java/org/example/data/users.txt";
     String nameFileWord = "src/main/java/org/example/data/words.txt";
+    String nameFileWordFamiliarized = "src/main/java/org/example/data/wordsFamiliarized.txt";
     public void LoadDataUser() {
         try {
             IConnection connection = Database.getConnection();
@@ -51,6 +52,27 @@ public class DataController {
         }
     }
 
+    public void LoadDataWordFamiliarized() {
+        try {
+            IConnection connection = Database.getConnection();
+            File file = new File(nameFileWordFamiliarized);
+            Scanner scanner = new Scanner(file);
+
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] values = line.split(";");
+                if (values.length == 2) {
+                    String polishWord = values[0];
+                    String englishWord= values[1];
+                    connection.addWordFamiliarized(polishWord, englishWord);
+                }
+            }
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Nie można znaleźć pliku: " + nameFileWordFamiliarized);
+        }
+    }
+
     public void saveDataUser() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nameFileUser))) {
             IConnection connection = Database.getConnection();
@@ -70,6 +92,20 @@ public class DataController {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nameFileWord))) {
             IConnection connection = Database.getConnection();
             List<Word> words = connection.getWords();
+            for (Word word : words) {
+                String wordData = word.getPolishWord() + ";" + word.getEnglishWord();
+                writer.write(wordData);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void saveDataWordFamiliarized() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nameFileWordFamiliarized))) {
+            IConnection connection = Database.getConnection();
+            List<Word> words = connection.getWordsFamiliarized();
             for (Word word : words) {
                 String wordData = word.getPolishWord() + ";" + word.getEnglishWord();
                 writer.write(wordData);

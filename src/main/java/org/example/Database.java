@@ -6,7 +6,9 @@ import java.util.List;
 public class Database {
     private List<User> Users = new ArrayList<>();
     private List<Word> Words = new ArrayList<>();
+    private List<Word> WordsFamiliarized = new ArrayList<>();
     private static final Database database = new Database();
+
     private Database(){}
     private static Database getInstance() {
         return database;
@@ -39,6 +41,10 @@ public class Database {
             return database.Words;
         }
 
+        public List<Word> getWordsFamiliarized() {
+            return database.WordsFamiliarized;
+        }
+
         public List<Word> getRandomWords(int number) {
             List<Word> list = new ArrayList<>();
             for (Word word : database.Words) {
@@ -53,8 +59,40 @@ public class Database {
             return words;
         }
 
+        public Word getRandomWord() {
+            List<Word> list = database.WordsFamiliarized;
+            int randomIndex = (int) (Math.random() * list.size());
+            return list.get(randomIndex);
+        }
+
+        @Override
+        public void removeWordFamiliarized(Word word) {
+            database.WordsFamiliarized.remove(word);
+        }
+
+        public void removeWord(String polishWord) {
+            List<Word> list = database.WordsFamiliarized;
+            for (Word word : list) {
+                if (word.getPolishWord().equals(polishWord)) {
+                    list.remove(word);
+                    return;
+                }
+            }
+        }
+
+        public void addWordFamiliarized(String polishWord, String englishWord) {
+            database.WordsFamiliarized.add(new Word(polishWord, englishWord));
+        }
+
         public void addWord(String polishWord, String englishWord) {
             database.Words.add(new Word(polishWord, englishWord));
+        }
+        @Override
+        public void refreshWordFamiliarized() {
+            database.WordsFamiliarized.clear();
+            for (Word word: database.Words){
+                database.WordsFamiliarized.add(word);
+            }
         }
     }
 }

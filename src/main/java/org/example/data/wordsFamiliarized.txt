@@ -1,0 +1,14 @@
+dom;house
+samochód;car
+książka;book
+ptak;bird
+oczy;eyes
+drzewo;tree
+komputer;computer
+kot;cat
+telefon;phone
+kwiat;flower
+słońce;sun
+rzeka;river
+buty;shoes
+góra;mountain

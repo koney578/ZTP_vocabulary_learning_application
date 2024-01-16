@@ -22,12 +22,36 @@ public class GLearningTestController extends GController{
         gMenuController.run();
     }
 
-    public String getWords() {
+    public List<Word> getWords() {
         List<Word> words = wordDispenser.getState().getWords();
-        String wordsString = "";
-        for (Word word : words) {
-            wordsString = wordsString + " "+ word.getPolishWord();
-        }
-        return wordsString;
+        return words;
+    }
+
+    public String getMessage() {
+        return wordDispenser.getState().getMessage();
+    }
+
+    public boolean getMode() {
+        return englishMode;
+    }
+
+    public Word getWord() {
+        return wordDispenser.getState().getGoodWord();
+    }
+
+    public String checkAnswer(Word word) {
+        return wordDispenser.getState().checkAnswer(word);
+    }
+
+    public int checkQuestion() {
+        return wordDispenser.getState().checkQuestion();
+    }
+
+    public void removeWordFamilirized() {
+        wordDispenser.getState().removeWordFamiliarized();
+    }
+
+    public void refreshWordFamiliarized() {
+        wordDispenser.getState().refreshWordFamiliarized();
     }
 }

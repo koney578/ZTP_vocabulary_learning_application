@@ -29,6 +29,7 @@ public class GLoginController extends GController{
         List<User> users = connection.getUsers();
         for (User user : users) {
             if (user.getUsername().equals(username) & user.getPassword().equals(password)) {
+                loggedUser = user;
                 gMenuController.run();
                 return "Zalogowano pomyślnie";
             }
@@ -39,4 +40,6 @@ public class GLoginController extends GController{
     public void getNewLoginRegisterView() {
         gLoginRegisterController.run();
     }
+
+
 }
