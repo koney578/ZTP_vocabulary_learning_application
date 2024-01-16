@@ -89,7 +89,7 @@ public class GLearningTestView {
                             int question = gLearningTestController.checkQuestion();
                             if (question >= 5){
                                 gLearningTestController.refreshWordFamiliarized();
-                                gLearningTestController.getNewMenuView();
+                                gLearningTestController.getNewSummaryView();
                             }else {
                                 gLearningTestController.removeWordFamilirized();
                                 gLearningTestController.run();
@@ -108,7 +108,7 @@ public class GLearningTestView {
                         String information = gLearningTestController.checkAnswer(word);
                         if (information == "go"){
                             newButton.setBackground(Color.GREEN);
-                            Timer delayTimer = new Timer(2000, new ActionListener() {
+                            Timer delayTimer = new Timer(1000, new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
                                     int question = gLearningTestController.checkQuestion();
@@ -133,7 +133,7 @@ public class GLearningTestView {
                             int question = gLearningTestController.checkQuestion();
                             if (question >= 5){
                                 gLearningTestController.refreshWordFamiliarized();
-                                gLearningTestController.getNewMenuView();
+                                gLearningTestController.getNewSummaryView();
                             }else {
                                 gLearningTestController.removeWordFamilirized();
                                 gLearningTestController.run();
@@ -147,21 +147,76 @@ public class GLearningTestView {
             }
 
         }
+        if (words.size() == 0){
+            JTextField textField = new JTextField("");
+            mainPanel.add(textField);
+
+            JButton secondButton = new JButton("Potwierdź");
+            secondButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (gLearningTestController.getMode()){
+                        String information = gLearningTestController.checkWordEnglish(textField.getText());
+                        if (information == "go"){
+                            int question = gLearningTestController.checkQuestion();
+                            if (question >= 5){
+                                gLearningTestController.refreshWordFamiliarized();
+                                gLearningTestController.getNewMenuView();
+                            }else {
+                                gLearningTestController.removeWordFamilirized();
+                                gLearningTestController.run();
+                            }}
+                        else if (information == "stop") {
+                            JOptionPane.showMessageDialog(null, "Zła odpowiedź - popraw się.", "Informacja", JOptionPane.INFORMATION_MESSAGE);
+                        } else if (information == "next") {
+                            gLearningTestController.removeWordFamilirized();
+                            int question = gLearningTestController.checkQuestion();
+                            if (question >= 5){
+                                gLearningTestController.refreshWordFamiliarized();
+                                gLearningTestController.getNewSummaryView();
+                            }else {
+                                gLearningTestController.removeWordFamilirized();
+                                gLearningTestController.run();
+                            }
+                        }
+                    }
+                    else{
+                        String information = gLearningTestController.checkWordPolish(textField.getText());
+                        if (information == "go"){
+                            int question = gLearningTestController.checkQuestion();
+                            if (question >= 5){
+                                gLearningTestController.refreshWordFamiliarized();
+                                gLearningTestController.getNewMenuView();
+                            }else {
+                                gLearningTestController.removeWordFamilirized();
+                                gLearningTestController.run();
+                            }}
+                        else if (information == "stop") {
+                            JOptionPane.showMessageDialog(null, "Zła odpowiedź - popraw się.", "Informacja", JOptionPane.INFORMATION_MESSAGE);
+                        } else if (information == "next") {
+                            gLearningTestController.removeWordFamilirized();
+                            int question = gLearningTestController.checkQuestion();
+                            if (question >= 5){
+                                gLearningTestController.refreshWordFamiliarized();
+                                gLearningTestController.getNewSummaryView();
+                            }else {
+                                gLearningTestController.removeWordFamilirized();
+                                gLearningTestController.run();
+                            }
+                        }
+                    }
+
+                }
+            });
+
+            secondButton.setBackground(Color.PINK);
+            mainPanel.add(secondButton);
+        }
 
         JLabel label2 = new JLabel("");
         label2.setFont(new Font("Arial", Font.ITALIC, 14));
         mainPanel.add(label2);
 
-
-        JButton firstButton = new JButton("Powrót!");
-        firstButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                gLearningTestController.getNewMenuView();
-            }
-        });
-        firstButton.setBackground(Color.PINK);
-        mainPanel.add(firstButton);
         jframe.setVisible(true);
     }
 }

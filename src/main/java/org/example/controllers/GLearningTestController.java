@@ -6,12 +6,14 @@ import org.example.views.GLearningTestView;
 import java.util.List;
 
 public class GLearningTestController extends GController{
+    private GSummaryController gSummaryController;
     private GLearningTestView gLearningTestView;
     private GMenuController gMenuController;
 
     public GLearningTestController(GMenuController gMenuController) {
         gLearningTestView = new GLearningTestView(this, jframe);
         this.gMenuController = gMenuController;
+        this.gSummaryController = new GSummaryController(gMenuController, this);
     }
 
     public void run() {
@@ -20,6 +22,9 @@ public class GLearningTestController extends GController{
 
     public void getNewMenuView() {
         gMenuController.run();
+    }
+    public void getNewSummaryView() {
+        gSummaryController.run();
     }
 
     public List<Word> getWords() {
@@ -53,5 +58,13 @@ public class GLearningTestController extends GController{
 
     public void refreshWordFamiliarized() {
         wordDispenser.getState().refreshWordFamiliarized();
+    }
+
+    public String checkWordEnglish(String wordEnglish) {
+        return wordDispenser.getState().checkWordEnglish(wordEnglish);
+    }
+
+    public String checkWordPolish(String wordPolish) {
+        return wordDispenser.getState().checkWordPolish(wordPolish);
     }
 }

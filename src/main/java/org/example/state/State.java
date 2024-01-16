@@ -25,4 +25,8 @@ public abstract class State {
     public abstract void removeWordFamiliarized();
 
     public abstract void refreshWordFamiliarized();
+
+    public abstract String checkWordEnglish(String wordEnglish);
+
+    public abstract String checkWordPolish(String wordPolish);
 }

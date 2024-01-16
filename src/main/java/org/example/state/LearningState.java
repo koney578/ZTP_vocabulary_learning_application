@@ -95,4 +95,22 @@ public class LearningState extends State{
         IConnection connection = Database.getConnection();
         connection.refreshWordFamiliarized();
     }
+
+    @Override
+    public String checkWordEnglish(String wordEnglish) {
+        if (goodWord.getEnglishWord().equals(wordEnglish)){
+            question = question + 1;
+            return "go";
+        }
+        return "stop";
+    }
+
+    @Override
+    public String checkWordPolish(String wordPolish) {
+        if (goodWord.getPolishWord().equals(wordPolish)){
+            question = question + 1;
+            return "go";
+        }
+        return "stop";
+    }
 }
