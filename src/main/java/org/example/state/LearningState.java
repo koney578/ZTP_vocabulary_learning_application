@@ -3,6 +3,9 @@ package org.example.state;
 import org.example.Database;
 import org.example.IConnection;
 import org.example.Word;
+import org.example.builder.Director;
+import org.example.builder.RandomWordBuilder;
+import org.example.builder.ResultWord;
 import org.example.decorator.WordEditorBasic;
 import org.example.decorator.WordsChangeSizeDecorator;
 import org.example.decorator.WordsDecorator;
@@ -46,8 +49,23 @@ public class LearningState extends State{
                 break;
             }
         }
+
         goodWord = randomWord;
+
         if (words.size() != 0) {
+            Director director = new Director();
+            RandomWordBuilder randomWordBuilder = new RandomWordBuilder();
+
+            director.constructWord(randomWordBuilder, words.get(0).getPolishWord());
+            ResultWord builderWord = randomWordBuilder.getResult();
+            String polish = builderWord.getValue();
+
+            director.constructWord(randomWordBuilder, words.get(0).getEnglishWord());
+            ResultWord builderWord1 = randomWordBuilder.getResult();
+            String english = builderWord1.getValue();
+            Word wordBuilded = new Word(polish,english);
+            words.set(0,wordBuilded);
+
             words.add(randomWord);
         }
 
