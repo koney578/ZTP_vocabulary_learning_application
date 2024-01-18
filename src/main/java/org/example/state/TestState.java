@@ -102,7 +102,8 @@ public class TestState extends State{
 
     @Override
     public String checkWordEnglish(String wordEnglish) {
-        if (goodWord.getEnglishWord().equals(wordEnglish)){
+        String word = wordEnglish.toLowerCase();
+        if (goodWord.getEnglishWord().equals(word)){
             points = points + 1;
         }
         question = question + 1;
@@ -111,7 +112,8 @@ public class TestState extends State{
 
     @Override
     public String checkWordPolish(String wordPolish) {
-        if (goodWord.getPolishWord().equals(wordPolish)){
+        String word = wordPolish.toLowerCase();
+        if (goodWord.getPolishWord().equals(word)){
             points = points + 1;
         }
         question = question + 1;
