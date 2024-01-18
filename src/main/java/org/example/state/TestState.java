@@ -3,6 +3,9 @@ package org.example.state;
 import org.example.Database;
 import org.example.IConnection;
 import org.example.Word;
+import org.example.decorator.WordEditorBasic;
+import org.example.decorator.WordsDecorator;
+import org.example.decorator.WordsMixerDecorator;
 
 import java.util.List;
 
@@ -48,7 +51,10 @@ public class TestState extends State{
         if (words.size() != 0) {
             words.add(randomWord);
         }
-        return words;
+
+        WordsDecorator wordsDecoratorMixed = new WordsMixerDecorator(new WordEditorBasic(words));
+
+        return wordsDecoratorMixed.decorateWords();
     }
     @Override
     public Word getGoodWord() {

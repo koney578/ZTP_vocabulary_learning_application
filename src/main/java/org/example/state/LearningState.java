@@ -3,6 +3,10 @@ package org.example.state;
 import org.example.Database;
 import org.example.IConnection;
 import org.example.Word;
+import org.example.decorator.WordEditorBasic;
+import org.example.decorator.WordsChangeSizeDecorator;
+import org.example.decorator.WordsDecorator;
+import org.example.decorator.WordsMixerDecorator;
 
 import java.util.List;
 
@@ -46,7 +50,11 @@ public class LearningState extends State{
         if (words.size() != 0) {
             words.add(randomWord);
         }
-        return words;
+
+        WordsDecorator wordsDecoratorMixed = new WordsMixerDecorator(new WordEditorBasic(words));
+        WordsDecorator wordsDecoratorSize = new WordsChangeSizeDecorator(new WordEditorBasic(wordsDecoratorMixed.decorateWords()));
+
+        return wordsDecoratorSize.decorateWords();
     }
     @Override
     public Word getGoodWord() {
@@ -59,7 +67,8 @@ public class LearningState extends State{
     }
     @Override
     public String checkAnswer(Word word) {
-        if (word.getPolishWord().equals(goodWord.getPolishWord())) {
+        String word1 = word.getPolishWord().toLowerCase();
+        if (word1.equals(goodWord.getPolishWord())) {
             question = question + 1;
             return "go";
         }
@@ -98,7 +107,8 @@ public class LearningState extends State{
 
     @Override
     public String checkWordEnglish(String wordEnglish) {
-        if (goodWord.getEnglishWord().equals(wordEnglish)){
+        String word = wordEnglish.toLowerCase();
+        if (goodWord.getEnglishWord().equals(word)){
             question = question + 1;
             return "go";
         }
@@ -107,7 +117,8 @@ public class LearningState extends State{
 
     @Override
     public String checkWordPolish(String wordPolish) {
-        if (goodWord.getPolishWord().equals(wordPolish)){
+        String word = wordPolish.toLowerCase();
+        if (goodWord.getPolishWord().equals(word)){
             question = question + 1;
             return "go";
         }
