@@ -39,8 +39,8 @@ public class GChooseStrategyView {
             @Override
             public void actionPerformed(ActionEvent e) {
                 gChooseStrategyController.setStrategy(1);
-                gChooseStrategyController.getNewLearningTestView();
                 gChooseStrategyController.setMixed(false);
+                gChooseStrategyController.getNewLearningTestView();
             }
         });
 
@@ -52,8 +52,8 @@ public class GChooseStrategyView {
             @Override
             public void actionPerformed(ActionEvent e) {
                 gChooseStrategyController.setStrategy(2);
-                gChooseStrategyController.getNewLearningTestView();
                 gChooseStrategyController.setMixed(false);
+                gChooseStrategyController.getNewLearningTestView();
             }
         });
 
@@ -65,8 +65,9 @@ public class GChooseStrategyView {
             @Override
             public void actionPerformed(ActionEvent e) {
                 gChooseStrategyController.setStrategy(3);
-                gChooseStrategyController.getNewLearningTestView();
                 gChooseStrategyController.setMixed(false);
+                gChooseStrategyController.getNewLearningTestView();
+
             }
         });
 
@@ -78,8 +79,8 @@ public class GChooseStrategyView {
             @Override
             public void actionPerformed(ActionEvent e) {
                 gChooseStrategyController.setStrategy(4);
-                gChooseStrategyController.getNewLearningTestView();
                 gChooseStrategyController.setMixed(false);
+                gChooseStrategyController.getNewLearningTestView();
             }
         });
 
@@ -91,8 +92,8 @@ public class GChooseStrategyView {
             @Override
             public void actionPerformed(ActionEvent e) {
                 gChooseStrategyController.setStrategy(5);
-                gChooseStrategyController.getNewLearningTestView();
                 gChooseStrategyController.setMixed(false);
+                gChooseStrategyController.getNewLearningTestView();
             }
         });
 
@@ -104,8 +105,8 @@ public class GChooseStrategyView {
             @Override
             public void actionPerformed(ActionEvent e) {
                 gChooseStrategyController.setStrategy(1);
-                gChooseStrategyController.getNewLearningTestView();
                 gChooseStrategyController.setMixed(true);
+                gChooseStrategyController.getNewLearningTestView();
             }
         });
 

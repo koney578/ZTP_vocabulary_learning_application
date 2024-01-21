@@ -51,7 +51,7 @@ public class GLoginRegisterView {
         firstButton.setBackground(Color.PINK);
         mainPanel.add(firstButton);
 
-        JLabel label5= new JLabel("Nie masz jescze konta?");
+        JLabel label5= new JLabel("Nie masz jeszcze konta?");
         label5.setFont(new Font("Arial", Font.ITALIC, 18));
         mainPanel.add(label5);
 
