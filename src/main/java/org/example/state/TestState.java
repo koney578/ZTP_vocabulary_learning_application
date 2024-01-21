@@ -137,4 +137,9 @@ public class TestState extends State{
         question = question + 1;
         return "next";
     }
+
+    @Override
+    public String howState() {
+        return "test";
+    }
 }

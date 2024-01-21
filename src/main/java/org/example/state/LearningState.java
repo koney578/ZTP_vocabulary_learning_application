@@ -142,4 +142,9 @@ public class LearningState extends State{
         }
         return "stop";
     }
+
+    @Override
+    public String howState() {
+        return "learning";
+    }
 }

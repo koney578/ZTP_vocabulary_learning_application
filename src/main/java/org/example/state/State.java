@@ -29,4 +29,6 @@ public abstract class State {
     public abstract String checkWordEnglish(String wordEnglish);
 
     public abstract String checkWordPolish(String wordPolish);
+
+    public abstract String howState();
 }

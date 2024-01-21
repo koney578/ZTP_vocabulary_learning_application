@@ -213,9 +213,18 @@ public class GLearningTestView {
             mainPanel.add(secondButton);
         }
 
-        JLabel label2 = new JLabel("");
-        label2.setFont(new Font("Arial", Font.ITALIC, 14));
-        mainPanel.add(label2);
+        if (gLearningTestController.howState().equals("learning")){
+            JButton secondButton = new JButton("Powrót");
+            secondButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    gLearningTestController.getNewMenuView();
+                }
+            });
+
+            secondButton.setBackground(Color.PINK);
+            mainPanel.add(secondButton);
+        }
 
         jframe.setVisible(true);
     }

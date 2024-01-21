@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 public class GChooseStrategyView {
     private JFrame jframe;
     private GChooseStrategyController gChooseStrategyController;
+
     public GChooseStrategyView(GChooseStrategyController gChooseStrategyController, JFrame jframe) {
         this.jframe = jframe;
         this.gChooseStrategyController = gChooseStrategyController;
@@ -39,6 +40,7 @@ public class GChooseStrategyView {
             public void actionPerformed(ActionEvent e) {
                 gChooseStrategyController.setStrategy(1);
                 gChooseStrategyController.getNewLearningTestView();
+                gChooseStrategyController.setMixed(false);
             }
         });
 
@@ -51,6 +53,7 @@ public class GChooseStrategyView {
             public void actionPerformed(ActionEvent e) {
                 gChooseStrategyController.setStrategy(2);
                 gChooseStrategyController.getNewLearningTestView();
+                gChooseStrategyController.setMixed(false);
             }
         });
 
@@ -63,6 +66,7 @@ public class GChooseStrategyView {
             public void actionPerformed(ActionEvent e) {
                 gChooseStrategyController.setStrategy(3);
                 gChooseStrategyController.getNewLearningTestView();
+                gChooseStrategyController.setMixed(false);
             }
         });
 
@@ -75,6 +79,7 @@ public class GChooseStrategyView {
             public void actionPerformed(ActionEvent e) {
                 gChooseStrategyController.setStrategy(4);
                 gChooseStrategyController.getNewLearningTestView();
+                gChooseStrategyController.setMixed(false);
             }
         });
 
@@ -87,6 +92,7 @@ public class GChooseStrategyView {
             public void actionPerformed(ActionEvent e) {
                 gChooseStrategyController.setStrategy(5);
                 gChooseStrategyController.getNewLearningTestView();
+                gChooseStrategyController.setMixed(false);
             }
         });
 
@@ -99,6 +105,7 @@ public class GChooseStrategyView {
             public void actionPerformed(ActionEvent e) {
                 gChooseStrategyController.setStrategy(1);
                 gChooseStrategyController.getNewLearningTestView();
+                gChooseStrategyController.setMixed(true);
             }
         });
 
